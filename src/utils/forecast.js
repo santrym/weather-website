@@ -13,9 +13,9 @@ const forecast = (lat, long, callback) => {
             callback('Unable to find location!');
         } else{   
             weatherData = body.current;
-            const {weather_descriptions:weatherDesc, temperature, feelslike: feels} = weatherData;
-            let retString = 'It is ' + weatherDesc[0] + ' outside. ';
-            retString += "The temperature is " + temperature + ' degrees, but it feels like ' + feels + '.'
+            console.log(body);
+            const {weather_descriptions:weatherDesc, temperature, feelslike: feels, humidity: hum} = weatherData;
+            let retString = 'It is ' + weatherDesc[0] + ' outside. \n The temperature is ' + temperature + ' degrees, but it feels like ' + feels + '. \n Humidity is currently at: ' + hum + ' %.';
             callback(undefined, retString);
         }
     });
